@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .task-6-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ebebeb;
+            padding: 6rem 0rem;
+        }
+        .vegetables-container{
+            display: flex;
+            max-width: 50%;
+            margin: 0px auto;
+            flex-direction: column;
+            gap: 2px;
+            background-color: #ebebeb;
+            border-radius: 5px;
+            align-items: stretch;
+        }
+        .vegetables-container--item{
+            background-color: #fff;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-6-wrapper">
+    <h1>
+        Задача 6
+    </h1>
+    <p>
+        З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+        <br> 
+        Обчислити вартість кожного товару окремо та загальну вартість. 
+        <br>
+        Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+    
+    <script>
+        const potatoPrice = parseInt(prompt('Введіть вартість картоплі'));
+        const carrotPrice = parseInt(prompt('Введіть вартість моркви'));
+        const tomatPrice = parseInt(prompt('Введіть вартість томатів'));
+        const potato = parseInt(prompt('Введіть кількість картоплі, кг'));
+        const carrot = parseInt(prompt('Введіть кількість моркви, кг'));
+        const tomat = parseInt(prompt('Введіть кількість томатів, кг'));
+       
+        let potatoSinglePrice = potatoPrice / potato;
+        let carrotSinglePrice = carrotPrice / carrot;
+        let tomatSinglePrice = tomatPrice / tomat;
+        let totalPrice = potatoPrice + carrotPrice + tomatPrice;
+        document.write(`
+        <div class = "vegetables-container">
+            <div class="vegetables-container--item">
+         Ціна на картоплю, за 1кг: <strong>${potatoSinglePrice}</strong>
+            </div>
+        <div class="vegetables-container--item">
+         Ціна на моркву, за 1кг : <strong>${carrotSinglePrice}</strong>
+            </div>
+        <div class="vegetables-container--item">
+         Ціна на томати, за 1кг  : <strong> ${tomatSinglePrice} </strong>
+        </div>
+         <div class="vegetables-container--item">
+         Ціна загального чеку  : <strong> ${totalPrice} </strong>
+        </div>  
+        </div>
+        `)
+
+    </script>
+    </div>
+</body>
+</html>
