@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      form{
+        display: flex;
+       justify-content: center;
+      }
+      .input-flexbox-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>
+        Завдання 2 
+    </h1>
+    <p>
+      Створити 10 елементів для введення цін продуктів
+      <img src="img/task-2.png" alt="">
+    </p>
+    <script>
+      let productName = 'Product#';
+      let productNumber = 0;
+      document.write(`<form> <div class="input-flexbox-container">`)
+      for( let i = 1; i <= 10; i++){
+        productNumber++;
+        document.write(` <label>${productName} ${productNumber} <input type="text" /></label>`)
+      }
+      document.write(`</form> </div>`)
+      
+    </script>
+</body>
+</html>

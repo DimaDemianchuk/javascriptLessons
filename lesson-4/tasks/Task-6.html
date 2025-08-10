@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .table-wrapper{
+    display: flex;
+    gap: 40px;
+    padding: 0px 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Завдання 6 
+    </h1>
+    <p>
+        
+        Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+    </p>
+    <img src="img/task-6.png" alt="">
+    <script>
+      let tableRowNumber = 0;
+      let tableColumnNumber = 0;
+      document.write('<div class="table-wrapper">')
+      for (let g = 1; g <= 3; g++){
+        document.write('<table border>')
+       for(let j = 1; j <= 3; j++){
+        document.write(`<tr>`)
+        for ( let i = 1; i <= 3; i++){
+            tableColumnNumber++;
+            document.write(`<td>${tableColumnNumber}</td>`)
+        }
+        document.write(`</tr>`)
+       }
+        document.write('</table>')
+      }
+      document.write('</div>')
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 7 
+    </h1>
+    <p>
+      Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+
+    </p>
+
+
+    <img src="img/task-7.png" alt="">
+    <script>
+        const userNumber = parseInt(prompt('Введіть ваше число'));
+        for (i = 1; i <= userNumber; i++){
+        document.write(`<div>`)
+        document.write(`<h1> Заголовок ${i} </h1>`)
+        for(j = 1; j <= i; j++){
+          if (j > i)
+				  break
+          document.write(`<p>Розділ${i}, Параграф${j}</p>`)
+        }
+        document.write(`</div>`)
+        }
+    </script>
+</body>
+</html>

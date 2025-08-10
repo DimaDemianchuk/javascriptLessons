@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 5 
+    </h1>
+    <p>
+      Вивести таблицю
+    </p>
+    <img src="img/task-5.png" alt="">
+    <script>
+      let tableRowNumber = 0;
+      let tableColumnNumber = 0;
+      document.write('<table border>')
+       for(let j = 1; j <= 3; j++){
+        document.write(`<tr>`)
+        for ( let i = 1; i <= 3; i++){
+            tableColumnNumber++;
+            document.write(`<td>${tableColumnNumber}</td>`)
+        }
+        document.write(`</tr>`)
+       }
+      document.write('</table>')
+    </script>
+</body>
+</html>
