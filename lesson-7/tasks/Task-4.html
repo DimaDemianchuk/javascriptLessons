@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 4 
+    </h1>
+    <p>
+        Задача 5. Створити окремі функції, які переводять:
+        Сантиметри у дюйми;
+        Кілограми у фунти;
+        Кілометри у милі.
+        
+
+    </p>
+    <script>
+ if (confirm("Ця програма переводить велечини?")){
+    let kmNum = parseInt(prompt('Введіть кількість кілометрів')); 
+    let kgNum = parseInt(prompt('Введіть кількість кілограмів')); 
+    let cmNum = parseInt(prompt('Введіть кількість сантиметрів')); 
+    function km(a){
+        return a * 0.62;
+    }
+    function kg (a){
+        return a * 2.2;
+    }
+    function cm (a){
+        return a * 0.39;
+    }
+
+
+    document.write(`Введені кілометри в милях =   ${km(kmNum).toFixed(2)} <br>`)
+    document.write(`Введені кілограми в фунтах =  ${kg(kgNum).toFixed(2)}<br>`)
+    document.write(`Введені сантиметри в дюймах - ${cm(cmNum).toFixed(2)}<br>`)
+
+ }
+    </script>
+</body>
+</html>

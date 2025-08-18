@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 5 
+    </h1>
+    <p>
+      Задача 7. Створити функцію, яка випадковим чином <br>
+      виводить на екран одне із 4 зображень 
+      <br>(шляхи до зображень передаються у функцію)
+
+    </p>
+    <!-- <img src="img/image-1.jpg" alt=""> -->
+    <script>
+if (confirm("Ця програма переводить велечини?")){
+  let minNumber = 1
+      maxNumber = 4;
+  let randNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+  // document.write(`<img src="img/image-1.jpg">`)
+  function imageGenerator(r){
+    document.write(`<img src="img/image-${r}.jpg"`);
+  }
+  let image = imageGenerator(randNumber)
+}
+    </script>
+</body>
+</html>

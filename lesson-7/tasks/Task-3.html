@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 3 
+    </h1>
+    <p>
+        Задача 3. Створити окремі функції, які для 4 чисел знаходять:<br>
+1.суму;<br>
+2.добуток;<br>
+3.середнє арифметичне;<br>
+4.мінімальне значення. <br>
+
+    </p>
+    <script>
+ if (confirm("Почати виведення?")){
+    let a = parseInt(prompt('Введіть перше число')); 
+    let b = parseInt(prompt('Введіть друге число')); 
+    let c = parseInt(prompt('Введіть третє число')); 
+    let d = parseInt(prompt('Введіть четверте число')); 
+    function sum (a, b, c, d){
+        return a + b + c + d;
+    }
+    function multiplication (a, b, c, d){
+        return a * b * c * d;
+    }
+    function middleNumber (a, b, c, d){
+        return (a + b + c + d) / 4;
+    }
+    function minimalNum (a, b, c, d){
+
+        return Math.min(a, b, c ,d)
+    }
+
+    document.write(`Сума чотирьох чисел - ${sum(a, b, c, d)} <br>`)
+    document.write(`Добуток чотирьох чисел - ${multiplication(a, b, c, d)}<br>`)
+    document.write(`Середнє значення чотирьох чисел - ${middleNumber(a, b, c, d)}<br>`)
+    document.write(`Мінімальне значення з чотирьох чисел - ${minimalNum(a, b, c, d)}<br>`)
+
+ }
+    </script>
+</body>
+</html>
