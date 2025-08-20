@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 4 
+    </h1>
+    <p>
+        Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які : <br>
+        •	починаються на букву «А»;<br>
+        •	перша і остання літери співпадають;<br>
+        •	складаються з більше ніш 5 символів;<br>
+
+    </p>
+    <script>
+    if (confirm("Почати виведення?")){
+       
+        let carNumbers = parseInt(prompt('Введіть кількість автомобільних номерів'));
+        function getCarName(){
+            let arr = []
+            for (let i = 0; i < carNumbers; i++){
+                
+                carNumbersName = prompt('Введіть номер авто')
+                arr.push(carNumbersName)
+                b = arr[i]
+            }
+            return arr
+        }
+        let a = getCarName()
+        console.log(a)
+        let sameFirstLetter = 0;
+        let wordLenght = 0;
+        let firstAndLastLetter = 0;
+        for ( let i = 0; i < a.length; i++){
+                let b = a[i]
+                if (b[0] === 'A'){
+                    sameFirstLetter++;
+                }
+                if (b[0] === b[length]){
+                    firstAndLastLetter++
+                }
+                if (b.length > 5){
+                    wordLenght++;
+                }
+            }
+            document.write(`Кількість номерів автомобілів, які починаються на "А" - ${sameFirstLetter} <br>`)
+            document.write(`Кількість номерів автомобілів, в яких співпадає перша і остання літера - ${firstAndLastLetter}<br>`)
+            document.write(`Кількість номерів автомобілів, які мають довжину > 5 - ${wordLenght}<br>`)
+
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 2 
+    </h1>
+    <p>
+
+        Задача 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран: <br>
+номери днів, протягом яких кількість відвідувачів була меншою за 20;<br>
+номери днів, коли кількість відвідувачів була максимальною;<br>
+номери днів, коли кількість відвідувачів була мінімальною;<br>
+загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.<br>
+
+</p>
+    <script>
+if (confirm("Почати виведення?")){
+let numOfGuests = 7; // кількість днів тижня
+
+  //Дізнаємося скільки було у нас відвідувачів
+function getGuestsArr (){
+  let arr = []
+  for (let i = 1; i <= numOfGuests; i++){
+  let guests = parseInt(prompt(`Введіть кількість відвідувачів за день ${i}`));
+  arr[i] = guests
+}
+return arr;
+
+}
+  
+let a = getGuestsArr ()
+console.log(a)
+
+// Дізнаємося кількість відвідувачів було на вихідних
+function getNumberWeekends (){
+    let weekDay = 0;
+    return a[6] + a[7]
+}
+// Дізнаємося скільки відвідувачів було у будні дні
+function getNumberWorkDays (){
+    let workDay = 0;
+    for (let g = 1; g <= 5; g++){
+        workDay += a[g]
+    }
+    return workDay
+}
+//Дізнаємося під яким номером дні, коли відвідувачів було < 20
+function getMiddleDay (){
+    let middleNumber = [];
+    for (let j = 1; j <= a.length; j++){
+        
+    if (a[j] <= 20) {
+        middleNumber.push(j)
+    }
+}
+return middleNumber;
+}
+// Дізнаємося якого дня було найменше відвідувачів 
+function getMinDay(a){
+    let minNumberCalc = Math.min(...a.slice(1));
+    minNumber = [];
+    for (let g = 1; g <= a.length; g++){
+        if (a[g] === minNumberCalc) {
+        minNumber.push(g)
+    }
+    }
+    return minNumber
+}
+// Дізнаємося якого дня було найбільше відвідувачів 
+function getMaxDay(a){
+    let maxNumberCalc = Math.max(...a.slice(1));
+    maxNumber = [];
+    for (let g = 1; g <= a.length; g++){
+        if (a[g] === maxNumberCalc) {
+        maxNumber.push(g)
+    }
+    }
+    return maxNumber
+}
+
+
+
+let day20 = getMiddleDay(a);
+let weekDay = getNumberWeekends (a);
+let workDay = getNumberWorkDays (a);
+let mDay = getMinDay(a);
+let maxDay = getMaxDay(a);
+document.write(`${day20} - номера днів, коли було  відвідувачів менше 20 <br>`)
+document.write(`${workDay} - відвідувачів було у будні дні <br>`)
+document.write(`${weekDay} -  відвідувачів було у вихідні дні <br>`)
+document.write(`${mDay} - номера днів, коли було найменше відвідувачів <br>`)
+document.write(`${maxDay} - номера днів, коли було найбільше відвідувачів <br>`)
+
+console.log(mDay)
+
+    }
+    </script>
+</body>
+</html>

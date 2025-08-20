@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 5 
+    </h1>
+    <p>
+        Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). <br>
+        Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).<br>
+        Приклад збереження даних<br>
+        let productsPrices = [1000, 20, 31]<br>
+        let productsTitles = [‘cheese’, ‘juice’, ‘bread’]<br>
+
+    </p>
+    <script>
+    if (confirm("Почати виведення?")){
+        let prices = [100, 20, 31, 20]
+        let products = ['сир', 'сік', 'яйця', 'хліб']
+        let money = parseInt(prompt(`Введіть кількість грошей `));
+        for ( let i = 0; i < products.length; i++ ){
+        let count = (money / prices[i]).toFixed(2); 
+        if (count > 0) {
+            document.write(`${products[i]} — ${count} шт (по ${prices[i]} грн)<br>`);
+        }
+        }    
+    }
+
+    </script>
+</body>
+</html>

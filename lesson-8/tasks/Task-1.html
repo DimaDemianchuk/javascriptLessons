@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 1 
+    </h1>
+    <p>
+      Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься <br>
+       (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка))
+
+    </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+  let numOfSubjects = parseInt(prompt('Введіть кількість предметів'));
+
+  
+  function getSubjectarr (){
+    let arr = []
+    for (let i = 1; i <= numOfSubjects; i++){
+    let mark = parseInt(prompt('Введіть введіть оцінку за предмет'));
+    arr.push(mark)
+  }
+  return arr;
+ 
+  }
+    
+  let a = getSubjectarr (numOfSubjects)
+
+  
+  console.log(a)
+ 
+let two ;
+let three ;
+let four ;
+let five ;
+for ( let i = 0; i <= a.length; i++){
+    let b = a[i];
+    if ( b === 2) two = true;
+    if ( b === 3) three = true;
+    if ( b === 4 && b <=5 ) four = true;
+    if ( b === 5) five = true;
+
+}
+
+if ( two === true){
+    document.write('Ви двієчник')
+
+}
+else if (three === true){
+    document.write('Ви трієчник')
+    
+} else if (four === true){
+    document.write('Ви хорошист')
+}else if(five === true) {
+    document.write('Ви відмінник')
+}
+
+
+
+
+ 
+}
+
+      
+    </script>
+</body>
+</html>
