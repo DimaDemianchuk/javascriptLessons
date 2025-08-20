@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 8 
+    </h1>
+    <p>
+        Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+    </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+let carNumbers = ['A1111A', 'B3333B', 'X000X', 'A0000A', 'A1111A']
+let a = []
+    for(item of carNumbers){
+        if (item.charAt(0) === 'A')
+        a.push(item)
+    }
+
+document.write(`Масив номерів ${carNumbers}<br>`)
+
+document.write(`Масив номерів, що починаються на А ${a}<br>`)
+ console.log(a)
+}
+
+      
+    </script>
+</body>
+</html>

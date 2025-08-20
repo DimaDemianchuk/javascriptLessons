@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 5 
+    </h1>
+    <p>
+        Дано масив елементів. Знайти добуток додатних елементів
+    </p>
+    <script>
+    if (confirm("Почати виведення?")){
+        let arr = [ -100, 10, 1, -202, 3, 4, 5, 6, 66, 13, -100, 100, -100, -3000, -20000, -101, -102, -101]
+        let b = 1;
+        for ( let item of arr){
+                
+                if (item > 0){
+
+                    b *= item
+                }
+
+            } 
+            document.write(`Добуток всіх додатних елементів в масив = ${b}`)
+            console.log(b)
+    }
+
+    </script>
+</body>
+</html>

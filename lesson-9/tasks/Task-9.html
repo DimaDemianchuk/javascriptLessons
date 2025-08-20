@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 9 
+    </h1>
+    <p>
+        Дано масив імен. Сформувати масив з перших літер цих імен.
+    </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+    let userNames = [
+    "Олександр", "Марія", "Дмитро", "Оксана", "Роман", 
+  "Софія", "Тарас", "Ірина", "Богдан", "Світлана", 
+  "Назар", "Ганна", "Андрій", "Руслана", "Михайло", 
+  "Дарина", "Олег", "Леся", "Юрій", "Катерина", 
+  "Ярослав", "Віктор", "Зоряна", "Степан", "Любов" 
+];
+    let a = []
+    for(item of userNames){
+        a.push(item.charAt(0))
+    }
+    document.write(`Масив з  імен ${userNames} <br>`)
+    document.write(`Масив з перших літер  імен ${a } <br>`)
+    console.log(a)
+}
+
+      
+    </script>
+</body>
+</html>

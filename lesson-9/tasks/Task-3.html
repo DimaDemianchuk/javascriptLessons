@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 3 
+    </h1>
+    <p>
+        Користувач вводить кількість елементів. 
+        <br>
+        Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+</p>
+    <script>
+      
+      if (confirm("Почати виведення?")){
+        let userNumber = parseInt(prompt('Введіть кількість елементів'))
+    let arr = new Array (userNumber)
+
+    for (let i = 1; i <= userNumber; i++){
+        arr.fill(1, 0,  5);
+        arr.fill(7, 6, )
+    }
+ document.write(`Елементи додані в масив${arr}<br>`)
+      }
+    </script>
+</body>
+</html>
