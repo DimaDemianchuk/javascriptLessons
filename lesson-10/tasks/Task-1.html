@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 1 
+    </h1>
+    <p>
+        Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+
+        1.Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн. <br>
+        2.Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>
+        3.Сформувати список з тих цін, які більші за попереднє значення<br>
+        4.Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального<br>
+        5.Підрахувати кількість змін цін<br>
+        6.Визначити, чи є ціна, що менше 1000<br>
+        7.Визначати, чи усі ціни більше за 1000<br>
+        8.Підрахувати кількість цін, що більше за 1000<br>
+        9.Підрахувати суму цін, що більше за 1000<br>
+        10.Знайти першу ціну, що більше за 1000<br>
+        11.Знайти індекс першої ціни, що більше за 1000<br>
+        12.Знайти останню ціну, що більше за 1000<br>
+        13.Знайти індекс останньої ціни, що більше за 1000<br>
+      </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+    //функція для формування початково масиву, з рандомними значеннями
+let arrItems = 10;
+function getPricesHistory (){
+    prices = []
+    for (let i =1; i <= arrItems; i ++){
+        let pricesHistory = Math.floor(Math.random() * 10000) + 1
+        prices.push(pricesHistory)
+    }
+    return prices
+}
+
+generatedArr = getPricesHistory();
+console.log(generatedArr)
+
+// Task 1         1.Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн. <br>
+let newPricesArr = generatedArr.filter(element => element > 1000 );
+document.write(`Завдання 1 ----- ${newPricesArr} - це новий масив у якому є тільки ті значення, що більші за 1000 <br>`)
+// Task2         2.Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>
+let arrPriceBigger1000 = []
+let a = generatedArr.forEach((element, index, generatedArr) => {
+    if (element > 1000){
+        arrPriceBigger1000.push(index)
+    }
+})
+document.write(`Завдання 2 ----- ${arrPriceBigger1000} - масив з індексами елементів, які більше за 1000 <br> `)
+console.log(arrPriceBigger1000)
+//Task 3         3.Сформувати список з тих цін, які більші за попереднє значення<br>
+let listOfPrices = generatedArr.filter((price, index, baseArr) => index > 0 && price > baseArr[index - 1]);
+
+document.write(`Завдання 3 ----- Список елементів з тих цін, які більші за попереднє значення - ${listOfPrices} <br>`)
+
+// Task 4         4.Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального<br>
+let newPercentageArr = [];
+let maxNumber = generatedArr.reduce((num, maxNum) => num > maxNum ? maxNum : num);
+let maxPricePrecentage = generatedArr.map(price => (100 * price / maxNumber).toFixed(2)  )
+newPercentageArr.push(maxPricePrecentage)
+console.log(maxPricePrecentage)
+ document.write(`Завдання 4 ----- новий масив, що містить значення цін у відсотках стосовно максимального - ${newPercentageArr} <br>`)
+
+//Task 5         5.Підрахувати кількість змін цін<br>
+let counter = generatedArr.reduce((count, price, index, arr) => {
+    if (index > 0 && price !== arr[index - 1]) {
+        return count + 1;
+    }
+    return count;
+}, 0);
+document.write(`Завдання 5 ----- Підрахувати кількість змін цін - ${counter} <br>`)
+
+// Task 6         6.Визначити, чи є ціна, що менше 1000<br>
+let priceSmaleer1000 = generatedArr.filter(element => element < 1000);
+document.write(`Завдання 6 ----- ${priceSmaleer1000} - ціни менші за тисячу <br>`)
+//Task 7        7.Визначати, чи усі ціни більше за 1000<br>
+let allPricesBigger1000 = generatedArr.every(price => price > 1000);
+console.log(allPricesBigger1000)
+if (allPricesBigger1000 === true){
+    document.write(`Завдання 7 -----Усі ціни більші за тисячу <br>`)
+}else {
+    document.write(`Завдання 7 -----Не всі ціни  більші за тисячу <br>`)
+
+}
+// Task 8         8.Підрахувати кількість цін, що більше за 1000<br>
+let pricesBigger1000SumIndex = generatedArr.filter(element => element > 1000);
+let numberOfElements = pricesBigger1000SumIndex.length;
+document.write(`Завдання 8 ----- Кількість елементів більших за тисячу - ${numberOfElements} <br>`)
+//Task 9         9.Підрахувати суму цін, що більше за 1000<br>
+
+let sumArr = generatedArr.reduce((x, y) => {
+    if (y > 1000){
+        x += y
+    }
+    return x;
+} )
+console.log(sumArr)
+
+document.write(`Завдання 9 ----- Сума елементів більших за тисячу ${sumArr} - <br>`)
+//Task 10         10.Знайти першу ціну, що більше за 1000<br>
+let firstPriceBigger1000 = generatedArr.find(price => price > 1000);
+document.write(`Завдання 10 ----- Перша ціна, більша за тисячу --${firstPriceBigger1000} <br>`)
+// Task 11         11.Знайти індекс першої ціни, що більше за 1000<br>
+let indexOfFirstPriceBigger1000 = generatedArr.findIndex(price => price > 1000);
+document.write(`Завдання 11 ----- Індекс першої ціни, більшої за тисячу  -- ${indexOfFirstPriceBigger1000}<br>`)
+
+
+// Task 12         12.Знайти останню ціну, що більше за 1000<br>
+let lastPriceBigger1000 = generatedArr.findLast(price => price > 1000);
+document.write(`Завдання 12 ----- Остання ціна, більша за тисячу  -- ${lastPriceBigger1000}<br>`)
+
+// Task 13         13.Знайти індекс останньої ціни, що більше за 1000<br>
+let indexOfLastPriceBigger1000 = generatedArr.findLastIndex(price => price > 1000);
+document.write(`Завдання 13 ----- Індекс останньої ціни , більшої за тисячу  -- ${indexOfLastPriceBigger1000}<br>`)
+
+
+
+
+
+}
+
+      
+    </script>
+</body>
+</html>
