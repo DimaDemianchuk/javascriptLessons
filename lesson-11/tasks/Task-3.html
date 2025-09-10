@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 3
+        Морський бій
+    </h1>
+    <p>
+
+      </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+const rows = 6;
+const cols = 6;
+const shipsCount = 5;
+
+let field = [];
+for (let i = 0; i < rows; i++) {
+    field[i] = [];
+    for (let j = 0; j < cols; j++) {
+        field[i][j] = 0;
+    }
+}
+
+let shipsPlace = 0;
+while (shipsPlace < shipsCount) {
+    let row = Math.floor(Math.random() * rows);
+    let col = Math.floor(Math.random() * cols);
+    if (field[row][col] === 0) {
+        field[row][col] = 1;
+        shipsPlace++;
+    }
+}
+
+function showField(showShips) {
+    for (let i = 0; i < rows; i++) {
+        let rowStr = "";
+        for (let j = 0; j < cols; j++) {
+            if (field[i][j] === 2) rowStr += "* ";
+            else if (field[i][j] === 3) rowStr += "o ";
+            else rowStr += showShips && field[i][j] === 1 ? "1 " : "0 ";
+        }
+        console.log(rowStr);
+    }
+    console.log("");
+}
+
+let shots = 3;
+
+for (let i = 0; i < shots; i++) {
+    let input = prompt(`введіть координати пострілу ${i + 1} з ${shots} (рядок і стовпець через пробіл 0-5):`);
+    if (!input) break;
+
+    let [row, col] = input.split(" ").map(Number);
+
+    if (field[row][col] === 1) {
+        field[row][col] = 2;
+        console.log("попадання");
+    } else if (field[row][col] === 0) {
+        field[row][col] = 3;
+        console.log("промах");
+    } else {
+        console.log("туди вже стріляли");
+    }
+}
+
+showField(true);
+
+
+}
+      
+    </script>
+</body>
+</html>

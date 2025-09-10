@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 1 
+    </h1>
+    <p>
+        Знайти суми елементів у вказаній області (зафарбована область охоплює відповідну
+        половину рядків і стовпців)
+       <br>
+      </p>
+      <div>
+        <img src="img/image-1.png" alt="">
+      </div>
+      <p>
+        5. Суму парних рядків <br>
+6. Суму непарних стовпців<br>
+7. У парних рядках – непарні стовпці, у непарних – парні.
+      </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+    //        Знайти суми елементів у вказаній області (зафарбована область охоплює відповідну половину рядків і стовпців)
+
+    let matrix = [
+        [1, 2, 3, 14],   
+        [4, 5, 6, 22],   
+        [7, 8, 9, 15],
+        [7, 8, 9, 13]    
+];
+//Завдання з картинки №1
+    let sum = 0;
+      for (let rowIndex = 0; rowIndex < matrix.length / 2; rowIndex++) {
+        for ( let colIndex = 0; colIndex < matrix[rowIndex].length/2; colIndex++ ) {
+          sum += matrix[rowIndex][colIndex]
+        }
+        
+    }
+//Завдання з картинки №2
+
+    let sum2 = 0;
+      for (let rowIndex = 0; rowIndex < matrix.length / 2; rowIndex++) {
+        for ( let colIndex = matrix[rowIndex].length/2; colIndex < matrix[rowIndex].length; colIndex++ ) {
+          sum2 += matrix[rowIndex][colIndex]
+        }
+        
+    }
+    //Завдання з картинки №3
+
+
+    let sum3= 0;
+      for (let rowIndex = matrix.length / 2; rowIndex < matrix.length; rowIndex++) {
+        for ( let colIndex = 0; colIndex < matrix[rowIndex].length/2; colIndex++ ) {
+          sum3 += matrix[rowIndex][colIndex]
+
+        }
+        
+    }
+    //Завдання з картинки №4
+
+    let sum4 = 0;
+      for (let rowIndex = matrix.length / 2; rowIndex < matrix.length; rowIndex++) {
+        for ( let colIndex = matrix[rowIndex].length/2; colIndex < matrix[rowIndex].length; colIndex++ ) {
+          sum4 += matrix[rowIndex][colIndex]
+
+        }
+        
+    }
+
+    //Task №5 Сумa парних рядків
+    sum5 = 0;
+    for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+        for ( let colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++ ) {
+            if (rowIndex % 2 === 0){
+            sum5 += matrix[rowIndex][colIndex]
+        }
+        }
+        
+
+    }
+    // Завдання 6. Суму непарних стовпців
+
+    sum6 = 0;
+    for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+        for ( let colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++ ) {
+            if (rowIndex % 2 === 1){
+            sum6 += matrix[rowIndex][colIndex]
+        }
+        }
+        
+
+    }
+    //7. У парних рядках – непарні стовпці, у непарних – парні.
+    sum7 = 0;
+
+    for (let rowIndex = 0; rowIndex < matrix.length; rowIndex++) {
+  for (let colIndex = 0; colIndex < matrix[rowIndex].length; colIndex++) {
+    
+    if (rowIndex % 2 === 0 && colIndex % 2 !== 0) {
+      sum7 += matrix[rowIndex][colIndex];
+    }
+    
+    if (rowIndex % 2 !== 0 && colIndex % 2 === 0) {
+      sum7 += matrix[rowIndex][colIndex];
+    }
+  }
+}
+
+document.write(`початковий масив ${matrix} <br>`)
+console.log(matrix)
+document.write(`Знайти суму з вказаної області картинка №1  = ${sum} <br>`)
+document.write(`Знайти суму з вказаної області картинка №2  = ${sum2} <br> `)
+document.write(`Знайти суму з вказаної області картинка №3  = ${sum3} <br>`)
+document.write(`Знайти суму з вказаної області картинка №4  = ${sum4} <br> `)
+document.write(`Знайти суму парних рядків (завдання №5) = ${sum5} <br> `)
+document.write(`Знайти суму непарних рядків  (завдання №6 )= ${sum6} <br> `)
+document.write(`Знайти У парних рядках – непарні стовпці, у непарних – парні(завдання №7)  = ${sum7} <br> `)
+
+
+
+console.log(sum6)
+
+
+}
+
+      
+    </script>
+</body>
+</html>

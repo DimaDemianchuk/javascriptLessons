@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Завдання 1 
+    </h1>
+    <p>
+        Задача 2. Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+        
+        1. загальний прибуток кожного магазину за тиждень;<br>
+        
+        2. загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за
+        вівторок, і т.д.);<br>
+        3. загальний прибуток за робочі дні<br>
+        4. загальний прибуток за вихідні дні<br>
+        5. максимальний прибуток за середу<br>
+        6. сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200<br>
+        7. відсортувати кожен тиждень за зростанням<br>
+        8. відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при
+        порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>
+        9. упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків
+        треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з
+        елементів повинен іти раніше).<br>
+      </p>
+    <script>
+
+if (confirm("Почати виведення?")){
+    //формуємо масив 
+        let shopsNumber = parseInt(prompt('Введіть кількість магазинів'))
+        let shops = [];
+        for (let i = 0; i < shopsNumber; i++){
+            let shopSalary = [];
+            for (let g = 0; g < 7; g++){
+                let daySalary = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000;
+                shopSalary.push(daySalary)
+            }
+            shops.push(shopSalary)
+        }
+        console.log(shops)
+
+        //1. загальний прибуток кожного магазину за тиждень;
+        document.write(`<strong>Завдання 1 </strong><br>`)
+        let shopIndex = 1
+        for (const row of shops){
+            let sum = 0;
+            for (let i = 0; i < 7; i++){
+                sum += row[i]
+            }    
+            document.write(`Сума прибутку за тиждень для магазину ${shopIndex}: ${sum} <br>`);
+            shopIndex++;
+        }
+        //2. загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br>
+        document.write(`<strong>Завдання 2</strong><br>`)
+
+        let days = ["Понеділок","Вівторок","Середа","Четвер","П’ятниця","Субота","Неділя"];
+        for (let i = 0; i < 7; i++){
+            let sumOfDay = 0;
+            for (const rows of shops){
+                sumOfDay += rows[i]
+            }    
+            document.write(`Сума прибутку за ${days[i]} для магазинів --  ${sumOfDay}<br>`);
+            console.log(sumOfDay)
+        }
+       // 3. загальний прибуток за робочі дні<br>
+       document.write(`<strong>Завдання 3</strong><br> `)
+
+        shopIndex = 1;
+        for (const row of shops){
+            let sumOfWeek = 0;
+            for (let i = 0; i < 5; i++){
+                sumOfWeek += row[i]
+
+            }    
+            document.write(`Сума прибутку за робочі дні для магазину  ${shopIndex}: ${sumOfWeek} <br>`);
+           shopIndex++
+        }
+
+        //4. загальний прибуток за вихідні дні<br>
+        document.write(`<strong>Завдання 4</strong><br>`)
+
+        shopIndex = 1;
+        for (const row of shops){
+            let sumOfWeekends = 0;
+            for (let i = 5; i < 7; i++){
+                sumOfWeekends += row[i]
+
+            }    
+            document.write(`Сума прибутку за вихідні дні для магазину  ${shopIndex}: ${sumOfWeekends}<br>`);
+           shopIndex++
+        }
+        // 5. максимальний прибуток за середу<br>
+        document.write(`<strong>Завдання 5</strong><br>`)
+        let maxWednesday = 0;
+        shopIndex = 1;
+        for (let i = 0; i < shops.length; i++) {
+              if (shops[i][2] > maxWednesday) {
+                maxWednesday = shops[i][2];
+                shopIndex++;
+              }
+
+        }
+
+        document.write(`Максимальний прибуток за середу = ${maxWednesday}, у магазині №${shopIndex}<br>`)
+
+        // 6. сформувати загальний список (одновимірний масив) зі значенням, які що більші за 200<br>
+        document.write(`<strong>Завдання 6</strong><br>`)
+
+        const biggerThan200 = shops.flat(Infinity).filter((el) => el > 150)
+        document.write(`${biggerThan200} <br>`)
+        // 7. відсортувати кожен тиждень за зростанням<br
+        document.write(`<strong>Завдання 7</strong> <br>`)
+        for (let i = 0; i < shops.length; i++) {
+         shops[i].sort((a, b) => a - b); 
+        }
+        document.write(`${shops}<br>`)
+        console.log(shops)
+
+
+
+        // 8. відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при
+        // порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>
+        document.write(`<strong>Завдання 8</strong><br>`)
+        shops.sort((a, b) => Math.max(...b) - Math.max(...a));
+
+        for (let i = 0; i < shops.length; i++) {
+             for (let j = 0; j < shops[i].length; j++) {
+             document.write(shops[i][j] + " ");
+            }
+        }
+        document.write(`<br>`)
+
+        // 9. упорядкувати тижні (рядки) за спаданням суми елементів у рядку (тобто при порівнянні двох рядків
+        // треба знайти суму кожного з рядків і порівнювати ці суми, на основі цих сум буде зрозуміло, який з
+        // елементів повинен іти раніше).<br>
+        document.write(`<strong>Завдання 9</strong><br>`)
+        
+        shops.sort((a, b) => {
+         let sumA = a.reduce((acc, val) => acc + val, 0);
+         let sumB = b.reduce((acc, val) => acc + val, 0);
+         return sumB - sumA; 
+        });
+
+        for (let i = 0; i < shops.length; i++) {
+            for (let j = 0; j < shops[i].length; j++) {
+                 document.write(shops[i][j] + " ");
+             }
+        }
+        console.log(shops)
+
+}
+
+      
+    </script>
+</body>
+</html>
